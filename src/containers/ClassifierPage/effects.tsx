@@ -55,8 +55,9 @@ const tagWord = (userId: string, wordId: string, tag: string) => {
     posTag
   )
   return wordRef.update({
-    posTags: firebase.firestore.FieldValue.arrayUnion(posTag),
-    taggers: firebase.firestore.FieldValue.arrayUnion(userId),
+    posTags: firestore.FieldValue.arrayUnion(posTag),
+    taggers: firestore.FieldValue.arrayUnion(userId),
+    tagsCount: firestore.FieldValue.increment(1),
     lease: {
       ownerId: '',
       expiresAt: firestore.Timestamp.now()
