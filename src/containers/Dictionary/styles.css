@@ -1,0 +1,6 @@
+
+.infinite-container {
+  height: 550px;
+  overflow: auto;
+  margin-bottom: 10px;
+}

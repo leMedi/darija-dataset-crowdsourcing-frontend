@@ -1,0 +1,26 @@
+.word-class-option-card {
+  margin-bottom: '10px';
+  min-height: '100px';
+}
+
+.word-class-option-card.selected {
+  border: 1px solid  #11369E;
+  position:relative;
+}
+
+.word-class-option-card.selected::after {
+  content: '';
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 0;
+  height: 0;
+  /* border-top: 20px solid transparent; */
+  /* border-left: 20px solid transparent; */
+  border-style: solid;
+  border-width: 30px 30px 0 0;
+  border-color: #11369E transparent transparent transparent;
+  /* border-top: 20px solid #11369E; */
+  clear: both;
+  /* -webkit-transform:rotate(360deg) */
+} 
