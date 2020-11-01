@@ -1,9 +1,8 @@
 import {$WordState, IWord, IPosTag, Word} from '../../models/Word';
 import {db} from '../../services/firebase';
-import firebase, {firestore} from 'firebase';
+import {firestore} from 'firebase';
 import { addMinutesToDate } from '../../utils/date';
 
-type IFireStoreDocumentSnapshot = firestore.QueryDocumentSnapshot<firestore.DocumentData>;
 type IFireStoreDocumentRef = firestore.DocumentReference<firestore.DocumentData>;
 
 const getActivelyLeaseWord = async (userId: string) => {

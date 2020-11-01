@@ -1,4 +1,4 @@
-export default {
+export const mockWords = {
   "words" : {
     "W-0001" : {
       "posTags" : [{tag: "VERB", taggerId: 'medi'}],
@@ -27,3 +27,5 @@ export default {
     }
   }
 }
+
+export default mockWords;
