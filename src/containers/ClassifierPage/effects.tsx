@@ -1,15 +1,15 @@
 import {$WordState, IWord, IPosTag, Word} from '../../models/Word';
 import {db} from '../../services/firebase';
-import {firestore} from 'firebase';
+import firebase from 'firebase';
 import { addMinutesToDate } from '../../utils/date';
 
-type IFireStoreDocumentRef = firestore.DocumentReference<firestore.DocumentData>;
+type IFireStoreDocumentRef = firebase.firestore.DocumentReference<firebase.firestore.DocumentData>;
 
 const getActivelyLeaseWord = async (userId: string) => {
   const Words = db.collection('words');
   return Words
     .where('lease.ownerId', '==', userId)
-    .where('lease.expiresAt', '>=' , firestore.Timestamp.now())
+    .where('lease.expiresAt', '>=' , firebase.firestore.Timestamp.now())
     .limit(1)
     .get()
     .then(wordSnapshot => {
@@ -22,7 +22,7 @@ const getActivelyLeaseWord = async (userId: string) => {
 const getUntaggedWord = (tagCountThreashold: number = 2) => {
   const Words = db.collection('words');
   return Words
-    .where('lease.expiresAt', '<' , firestore.Timestamp.now())
+    .where('lease.expiresAt', '<' , firebase.firestore.Timestamp.now())
     .limit(1)
     .get()
     .then(querySnapshot => {
@@ -37,7 +37,7 @@ const leaseWord = (userId: string, wordRef: IFireStoreDocumentRef ) => {
     .update({
       lease: {
         ownerId: userId,
-        expiresAt: firestore.Timestamp.fromDate(addMinutesToDate(new Date(), 5))
+        expiresAt: firebase.firestore.Timestamp.fromDate(addMinutesToDate(new Date(), 5))
       }
     });
 }
@@ -54,12 +54,12 @@ const tagWord = (userId: string, wordId: string, tag: string) => {
     posTag
   )
   return wordRef.update({
-    posTags: firestore.FieldValue.arrayUnion(posTag),
-    taggers: firestore.FieldValue.arrayUnion(userId),
-    tagsCount: firestore.FieldValue.increment(1),
+    posTags: firebase.firestore.FieldValue.arrayUnion(posTag),
+    taggers: firebase.firestore.FieldValue.arrayUnion(userId),
+    tagsCount: firebase.firestore.FieldValue.increment(1),
     lease: {
       ownerId: '',
-      expiresAt: firestore.Timestamp.now()
+      expiresAt: firebase.firestore.Timestamp.now()
     }
   })
 }

@@ -1,6 +1,6 @@
 import {$UserState, loggedOut, User, IUser} from '../../models/User';
 import {login} from '../../services/firebase';
-import * as firebase from "firebase";
+import firebase from "firebase";
 import {LoginFormValues} from './types';
 
 export const logInFx = User.createEffect(

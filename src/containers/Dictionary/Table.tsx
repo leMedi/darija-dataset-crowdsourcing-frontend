@@ -1,5 +1,5 @@
 import React from "react";
-import { Space, Table, Tag } from "antd";
+import { Table, Tag } from "antd";
 import { IDictionary } from "./types";
 
 
@@ -32,16 +32,10 @@ const columns = [
     ),
   },
   {
-    title: 'Action',
-    key: 'action',
-    render: (text: string, record: any) => (
-      <Space size="middle">
-        {/* eslint-disable-next-line */}
-        <a href="#">Edit {record.value}</a>
-        {/* eslint-disable-next-line */}
-        <a href="#">Delete</a>
-      </Space>
-    ),
+    title: 'Occurences Count',
+    key: 'commentsCount',
+    dataIndex: 'commentsCount',
+    render: (text: string) => <>{text}</>,
   },
 ];
 

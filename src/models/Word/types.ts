@@ -1,4 +1,5 @@
 import { IUser } from "../User"
+import firebase from "firebase"
 
 export type IPosTag = {
   taggerId: string;

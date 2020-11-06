@@ -1,15 +1,15 @@
-import * as firebase from "firebase";
+import firebase from "firebase";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD_4csIX3VRtkV25ZRMIK09Y8ouWy-JygM",
-  authDomain: "darija-dataset.firebaseapp.com",
-  databaseURL: "https://darija-dataset.firebaseio.com",
-  projectId: "darija-dataset",
-  storageBucket: "darija-dataset.appspot.com",
-  messagingSenderId: "591668647076",
-  appId: "1:591668647076:web:1afeda33db301fed6d8231",
-  measurementId: "G-MS5RCDLC10"
+  apiKey: "AIzaSyB_QBuvoD7hiupYjn3a1-rzFkLQLWrI2P8",
+  authDomain: "darija--dataset.firebaseapp.com",
+  databaseURL: "https://darija--dataset.firebaseio.com",
+  projectId: "darija--dataset",
+  storageBucket: "darija--dataset.appspot.com",
+  messagingSenderId: "327792952069",
+  appId: "1:327792952069:web:002c305b8d94c7e6ee6d6c",
+  measurementId: "G-P1JNYRQ6FP"
 };
 
 firebase.initializeApp(firebaseConfig);
